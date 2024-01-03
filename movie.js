@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   movieDetailsDiv.innerHTML = `<h1>Loading...</h1>`;
 
   if (imdbID) {
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`)
+    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.Response === "True") {

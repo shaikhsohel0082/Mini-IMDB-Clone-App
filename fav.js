@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function displayMovieDetails(imdbID, container) {
   const apiKey = "86e74425"; // Replace with your actual API key
 
-  fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`)
+  fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${imdbID}`)
     .then((response) => {
       return response.json();
     })

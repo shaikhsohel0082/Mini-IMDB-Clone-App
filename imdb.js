@@ -8,12 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   searchButton.addEventListener("click", () => {
     userInput = search.value.trim();
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${userInput}`)
+    description.innerHTML = "Loading..."; // Display loading message
+    description.style.display = "block";
+
+    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${userInput}`)
       .then((response) => response.json())
       .then((data) => {
         // Clear previous search results
         description.innerHTML = "";
-        description.style.display = "block";
 
         // Check if the search was successful
         if (data.Response === "True") {
@@ -39,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
+        description.innerHTML = "Error loading data.";
       });
   });
 });
